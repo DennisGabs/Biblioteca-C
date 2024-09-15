@@ -14,15 +14,21 @@ void cadastrarLivro(Livro livros[], int *posicao){
 	FILE *file;
 	file = fopen("./registros.txt", "a");
 	Livro livro;
+	fflush(stdin);
 	printf("======== Cadastrar Livro ========\n");
 	printf("NOME: ");
 	gets(&livro.nome);
 	printf("ISBN: ");
 	gets(&livro.ISBN);
-	livros[*posicao] = livro;
+	printf("Quantidade: ");
+	scanf("%d", &livro.qtd);
 	*posicao = *posicao + 1;
+	livros[*posicao] = livro;
 	fprintf(file, "========= Livro %d =========\n", *posicao);
-	fprintf(file, "Nome do Livro: %s\n", livro.nome);
+	fprintf(file, "Nome: %s\n", livro.nome);
+	fprintf(file, "ISBN: %s\n", livro.ISBN);
+	fprintf(file, "Quantidade: %d\n", livro.qtd);
+	fprintf(file, "===========================\n");
 	fclose(file);
 	return livros;
 }
