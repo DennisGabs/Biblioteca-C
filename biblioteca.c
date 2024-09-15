@@ -11,6 +11,8 @@ typedef struct{
 }Livro;
 
 Livro* cadastrarLivro(Livro livros[], int *posicao){
+	FILE *file;
+	file = fopen("./registros.txt", "a");
 	Livro livro;
 	printf("======== Cadastrar Livro ========\n");
 	printf("NOME: ");
@@ -18,7 +20,10 @@ Livro* cadastrarLivro(Livro livros[], int *posicao){
 	printf("ISBN: ");
 	gets(&livro.ISBN);
 	livros[*posicao] = livro;
-	posicao = posicao + 1;
+	*posicao = *posicao + 1;
+	fprintf(file, "========= Livro %d =========\n", *posicao);
+	fprintf(file, "Nome do Livro: %s\n", livro.nome);
+	fclose(file);
 	return livros;
 }
 
