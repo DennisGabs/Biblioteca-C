@@ -10,7 +10,7 @@ typedef struct{
 	int qtd_emprestado;
 }Livro;
 
-Livro* cadastrarLivro(Livro livros[], int *posicao){
+void cadastrarLivro(Livro livros[], int *posicao){
 	FILE *file;
 	file = fopen("./registros.txt", "a");
 	Livro livro;
