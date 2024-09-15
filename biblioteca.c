@@ -10,9 +10,18 @@ typedef struct{
 	int qtd_emprestado;
 }Livro;
 
-void cadastrarLivro(Livro livros[], int *posicao){
+void registrar(Livro *livro, int posicao){
 	FILE *file;
 	file = fopen("./registros.txt", "a");
+	fprintf(file, "========= Livro %d =========\n", posicao);
+	fprintf(file, "Nome: %s\n", livro->nome);
+	fprintf(file, "ISBN: %s\n", livro->ISBN);
+	fprintf(file, "Quantidade: %d\n", livro->qtd);
+	fprintf(file, "===========================\n");
+	fclose(file);
+}
+
+void cadastrarLivro(Livro livros[], int *posicao){
 	Livro livro;
 	fflush(stdin);
 	printf("======== Cadastrar Livro ========\n");
@@ -24,12 +33,7 @@ void cadastrarLivro(Livro livros[], int *posicao){
 	scanf("%d", &livro.qtd);
 	*posicao = *posicao + 1;
 	livros[*posicao] = livro;
-	fprintf(file, "========= Livro %d =========\n", *posicao);
-	fprintf(file, "Nome: %s\n", livro.nome);
-	fprintf(file, "ISBN: %s\n", livro.ISBN);
-	fprintf(file, "Quantidade: %d\n", livro.qtd);
-	fprintf(file, "===========================\n");
-	fclose(file);
+	registrar(&livro, *posicao);
 	return livros;
 }
 
