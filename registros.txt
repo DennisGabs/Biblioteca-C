@@ -1,4 +1,20 @@
 ========= Livro 1 =========
-Nome do Livro: dennis
+Nome: Dennis
+ISBN: 123456
+Quantidade: 1234
+===========================
 ========= Livro 2 =========
-Nome do Livro: gabs
+Nome: Gabriel Lindo da Silva
+ISBN: 987654
+Quantidade: 10
+===========================
+========= Livro 1 =========
+Nome: Dennis Lindo
+ISBN: 12345
+Quantidade: 1234
+===========================
+========= Livro =========
+Nome: 1ivro do hitler
+ISBN: 123456
+Quantidade: 12
+===========================

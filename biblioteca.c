@@ -46,17 +46,13 @@ void cadastrarLivro(Livro livros[], int *posicao) {
 }
 
 void lerArquivo() {
-    FILE *file = fopen("./registros.txt", "rt"); //abre o arquivo modo leitura
+    FILE *file = fopen("./registros.txt", "r"); //abre o arquivo modo leitura
     char linha[500];
-    char *result; // vai ser usado para intercalar entre as linhas do arquivo
     printf("========= Conteudo do Arquivo =========\n");
-	// fonte de inspiracao https://www.inf.pucrs.br/~pinho/LaproI/Arquivos/Arquivos.htm
-	while (!feof(file)){
-		// faz a leitura ate 499 caracteres ou até o \n
-		result = fgets(linha, sizeof(linha), file); 
-		if(result){ // se foi possivel fazer a leitura
-			printf("%s", linha);
-		}
+	// fonte de inspiracao: https://www.w3schools.com/c/c_files_read.php
+	// faz a leitura do arquivo imprimindo linha a linha
+	while (fgets(linha, sizeof(linha), file)){
+		printf("%s", linha);
 	}
     fclose(file);
     printf("========================================\n");
